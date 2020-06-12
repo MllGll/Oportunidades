@@ -8,9 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "candidato")
+@Table(name = "candidatos")
 public class Candidato {
 	
 	@Id
@@ -20,29 +21,15 @@ public class Candidato {
 	@NotBlank(message = "")
 	private String nome;
 	
-	@NotBlank(message = "")
-	private String email;
-	
-	@NotBlank(message = "")
 	private String curriculo;
 	
-	@NotBlank(message = "")
 	private String foto;
 	
+	@NotNull
 	@OneToOne
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario usuario;
 	
-	
-
-	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public long getId() {
 		return id;
 	}
@@ -73,6 +60,14 @@ public class Candidato {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	
