@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.imepac.site.dtos.LoginForm;
 import br.com.imepac.site.entities.Usuario;
 import br.com.imepac.site.entities.repositories.IUsuarioRepository;
 import br.com.imepac.site.interfaces.IUsuarioServico;
@@ -33,5 +34,10 @@ public class UsuarioServicoImpl implements IUsuarioServico {
 
 	public void update(Usuario usuario) {
 		usuarioRepository.save(usuario);
+	}
+
+	@Override
+	public boolean autenticacao(LoginForm loginForm) {
+		return usuarioRepository.findByEmailAndSenha(loginForm.getEmail(), loginForm.getSenha()) != null;
 	}
 }
