@@ -5,18 +5,15 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.imepac.site.dtos.LoginForm;
 import br.com.imepac.site.entities.Usuario;
-import br.com.imepac.site.entities.repositories.IUsuarioRepository;
 import br.com.imepac.site.interfaces.IUsuarioServico;
 
 @Controller
@@ -62,6 +59,27 @@ public class UsuarioController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("usuarios/visualizar");
 		modelAndView.addObject(usuario);
+		return modelAndView;
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "usuarios/login")
+	public ModelAndView login(@Valid LoginForm loginForm, BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("usuarios/cadastrar");
+			modelAndView.addObject("message_error", "Foram encontrados erros!");
+			modelAndView.addObject(loginForm);
+		} else {
+
+			if(usuarioServico.autenticacao(loginForm)==true) {
+				// criar um elemento na sessão
+				
+				modelAndView.setViewName("gerenciar");
+			}else {
+				modelAndView.setViewName("login");
+				modelAndView.addObject("message_erro", "Dados de acesso incorretos!");	
+			}
+		}
 		return modelAndView;
 	}
 }
