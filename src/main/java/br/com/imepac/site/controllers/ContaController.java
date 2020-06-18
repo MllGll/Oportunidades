@@ -47,7 +47,7 @@ public class ContaController {
 			modelAndView.addObject("message_error", "Foram encontrados erros!");
 		} else {
 
-			// usuario
+			//usuario
 			Usuario usuario = new Usuario();
 			usuario.setEmail(contaForm.getEmail());
 			usuario.setSenha(contaForm.getSenha());
@@ -55,13 +55,13 @@ public class ContaController {
 			usuarioServico.save(usuario);
 
 			if (contaForm.getTipo() == ContaTypeENUM.CANDIDATO.ordinal()) {
-				// candidato
+				//candidato
 				Candidato candidato = new Candidato();
 				candidato.setNome(contaForm.getNome());
 				candidato.setUsuario(usuario);
 				candidatoServico.save(candidato);
 			} else {
-				// contratante
+				//contratante
 				Contratante contratante = new Contratante();
 				contratante.setNome(contaForm.getNome());
 				contratante.setUsuario(usuario);

@@ -24,14 +24,14 @@ public class Oportunidade {
 	@NotBlank(message = "O campo funcao é obrigatório!")
 	private String funcao;
 	
-	@NotBlank(message = "O campo salario é obrigatório!")
-	private String salario;
+	@NotBlank(message = "O campo remuneração é obrigatório!")
+	private String remuneracao;
 	
 	@NotBlank(message = "O campo nome é obrigatório!")
 	private String nome;
 	
 	@NotBlank(message = "")
-	private String date;
+	private String data;
 
 	
 	public String getObs() {
@@ -66,13 +66,7 @@ public class Oportunidade {
 		this.funcao = funcao;
 	}
 
-	public String getSalario() {
-		return salario;
-	}
 
-	public void setSalario(String salario) {
-		this.salario = salario;
-	}
 
 	public String getNome() {
 		return nome;
@@ -82,13 +76,23 @@ public class Oportunidade {
 		this.nome = nome;
 	}
 
-	public String getDate() {
-		return date;
+	public String getRemuneracao() {
+		return remuneracao;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setRemuneracao(String remuneracao) {
+		this.remuneracao = remuneracao;
 	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+
 	
 	
 }
