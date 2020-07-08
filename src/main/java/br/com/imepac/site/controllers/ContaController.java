@@ -2,6 +2,7 @@ package br.com.imepac.site.controllers;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -43,18 +44,18 @@ public class ContaController {
 
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("index");
-			modelAndView.addObject("message_error", "Foram encontrados erros!");
+			modelAndView.addObject("message", "Foram encontrados erros!");
 		} else {
 
 			//usuario
 			Usuario usuario = new Usuario();
 			usuario.setEmail(contaForm.getEmail());
 			usuario.setSenha(contaForm.getSenha());
-			usuario.setTipo(ContaTypeENUM.CANDIDATO);
+			usuario.setTipo(contaForm.getTipo());
 			
 			usuarioServico.save(usuario);
 
-			if (contaForm.getTipo() == ContaTypeENUM.CANDIDATO.ordinal()) {
+			if (contaForm.getTipo() == ContaTypeENUM.CANDIDATO) {
 				//candidato
 				Candidato candidato = new Candidato();
 				candidato.setNome(contaForm.getNome());
@@ -67,7 +68,8 @@ public class ContaController {
 				contratante.setUsuario(usuario);
 				contranteServico.save(contratante);
 			}
-
+			modelAndView.addObject("message", "Cadastro realizado!");
+			
 			modelAndView.setViewName("index");
 		}
 		return modelAndView;

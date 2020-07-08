@@ -11,19 +11,19 @@
 
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
-	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/law-icons/font/flaticon.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/law-icons/font/flaticon.css">
 
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/font-awesome.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/slick-theme.css">
 
-    <link rel="stylesheet" href="assets/css/helpers.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/landing-2.css">
+    <link rel="stylesheet" href="/assets/css/helpers.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/landing-2.css">
 	</head>
 	<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 
@@ -83,12 +83,12 @@
                 <div class="pb_select-wrap">
                   <select class="form-control pb_height-50 reverse" name="tipo">
                     <option value="" selected>Tipo da Conta</option>
-                    <option value="1">Contratante</option>
-                    <option value="2">Candidato</option> 					
+                    <option value="CANDIDATO">Contratante</option>
+                    <option value="CONTRATANTE">Candidato</option> 					
                   </select>
                   <form:errors path="contaForm.tipo"/>
                 </div>
-                <p>${message_error}</p>
+                <p>${message}</p>
               </div>
               <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Registrar">
@@ -327,17 +327,17 @@
 
 
 
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
 
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+    <script src="/assets/js/jquery.mb.YTPlayer.min.js"></script>
 
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/jquery.easing.1.3.js"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
 	</body>
 </html>
