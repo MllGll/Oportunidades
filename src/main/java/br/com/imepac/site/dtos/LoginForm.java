@@ -2,13 +2,11 @@ package br.com.imepac.site.dtos;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.imepac.site.entities.Usuario;
-
 public class LoginForm {
 
-	@NotBlank(message = "Campo e-mail dé obrigatório o preenchimento!")
+	@NotBlank(message = "Campo e-mail é de preenchimento obrigatório!")
 	private String email;
-	@NotBlank(message = "Campo senha dé obrigatório o preenchimento!")
+	@NotBlank(message = "Campo senha é de preenchimento obrigatório!")
 	private String senha;
 	
 	public String getEmail() {
@@ -23,6 +21,4 @@ public class LoginForm {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
 }

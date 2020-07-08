@@ -1,10 +1,18 @@
 package br.com.imepac.site.dtos;
 
+import javax.validation.constraints.NotBlank;
+
 public class ContaForm {
 
+	@NotBlank(message = "O campo nome é obrigatório")
 	private String nome;
+	
+	@NotBlank(message = "O campo email é obrigatório")
 	private String email;
+	
+	@NotBlank(message = "O campo senha é obrigatório")
 	private String senha;
+	
 	private int tipo;
 
 	public String getNome() {

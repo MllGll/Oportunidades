@@ -7,21 +7,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "contratantes")
+@Table(name = "contratante")
 public class Contratante {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotBlank(message = "")
 	private String nome;
 
-	@NotBlank(message = "")
 	private String foto;
 
 	@NotNull

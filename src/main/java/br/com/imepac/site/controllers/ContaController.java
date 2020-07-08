@@ -1,12 +1,12 @@
 package br.com.imepac.site.controllers;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,15 +15,14 @@ import br.com.imepac.site.dtos.ContaForm;
 import br.com.imepac.site.entities.Candidato;
 import br.com.imepac.site.entities.Contratante;
 import br.com.imepac.site.entities.Usuario;
-import br.com.imepac.site.entities.repositories.ICandidatoRepository;
-import br.com.imepac.site.entities.repositories.IUsuarioRepository;
 import br.com.imepac.site.interfaces.ICandidatoServico;
 import br.com.imepac.site.interfaces.IContratanteServico;
 import br.com.imepac.site.interfaces.IUsuarioServico;
 import br.com.imepac.site.utils.ContaTypeENUM;
+import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
 
 @Controller
-@RequestMapping(value = "/conta")
+@RequestMapping(value = "/scripts/conta")
 public class ContaController {
 
 	@Autowired
@@ -39,11 +38,11 @@ public class ContaController {
 	private IUsuarioServico usuarioServico;
 
 	@Transactional
-	@RequestMapping(method = RequestMethod.POST, value = "/salvar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-	public ModelAndView salvar(ContaForm contaForm, BindingResult bindingResult) {
+	@RequestMapping(method = RequestMethod.POST, value = "cadastrar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	public ModelAndView cadastrar(@Valid ContaForm contaForm, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			modelAndView.setViewName("usuarios/cadastrar");
+			modelAndView.setViewName("index");
 			modelAndView.addObject("message_error", "Foram encontrados erros!");
 		} else {
 
@@ -52,6 +51,7 @@ public class ContaController {
 			usuario.setEmail(contaForm.getEmail());
 			usuario.setSenha(contaForm.getSenha());
 			usuario.setTipo(ContaTypeENUM.CANDIDATO);
+			
 			usuarioServico.save(usuario);
 
 			if (contaForm.getTipo() == ContaTypeENUM.CANDIDATO.ordinal()) {
@@ -68,9 +68,27 @@ public class ContaController {
 				contranteServico.save(contratante);
 			}
 
-			modelAndView.setViewName("/conta/gerenciar");
-			modelAndView.addObject("message_success", "Cadastro efetuado com sucesso!");
+			modelAndView.setViewName("index");
 		}
 		return modelAndView;
 	}
+	/*
+	@RequestMapping(method = RequestMethod.DELETE, value = "usuario/delete/ {id}")
+	public ModelAndView delete(@PathVariable long id) {
+		usuarioServico.delete(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:usuario/cadastrar");
+		modelAndView.addObject("message_success", "Usuario deletado com sucesso");
+		return modelAndView;
+	}
+	/*
+	@RequestMapping(method = RequestMethod.GET, value = "usuario/gerenciar/{id}")
+	public ModelAndView gerenciar(@PathVariable long id) {
+		 Usuario usuario = usuarioServico.read(id);
+		 ModelAndView modelAndView = new ModelAndView();
+		 modelAndView.setViewName("usuario/gerenciar");
+		 modelAndView.addObject("Usuarios", usuario);
+		return modelAndView;
+	}
+	*/
 }

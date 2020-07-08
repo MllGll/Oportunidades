@@ -13,11 +13,19 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @SpringBootApplication
-public class OpornunidadesApplication implements WebApplicationInitializer{
+public class OpornunidadesApplication extends WebMvcConfigurerAdapter implements WebApplicationInitializer  {
 
+		
+		 @Override
+		    public void addViewControllers(ViewControllerRegistry registry) {
+		      registry.addViewController("/").setViewName("index");
+		    }
+		 
 	@Override
     public void onStartup(ServletContext container) {
         XmlWebApplicationContext appContext = new XmlWebApplicationContext();

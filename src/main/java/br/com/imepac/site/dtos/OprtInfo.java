@@ -1,11 +1,17 @@
 package br.com.imepac.site.dtos;
 
+import javax.validation.constraints.NotBlank;
+
 public class OprtInfo {
 	
+	@NotBlank(message = "Campo nome é de preenchimento obrigatório!")
 	private String nome;
+	@NotBlank(message = "Campo função é de preenchimento obrigatório!")
 	private String funcao;
+	@NotBlank(message = "Campo local é de preenchimento obrigatório!")
 	private String local;
 	private String data;
+	@NotBlank(message = "Campo remuneração é de preenchimento obrigatório!")
 	private String remuneracao;
 	public String getNome() {
 		return nome;

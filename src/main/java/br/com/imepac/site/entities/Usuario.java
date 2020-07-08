@@ -7,27 +7,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 import br.com.imepac.site.utils.ContaTypeENUM;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank(message = "")
 	private String email;
 
-	@NotBlank(message = "O campo senha é obrigatório")
 	private String senha;
 	
-	@Enumerated(EnumType.ORDINAL)
-	@NotNull(message = "A seleção de tipo de usuário é obrigatória")
+	@Enumerated(EnumType.STRING)
 	private ContaTypeENUM tipo;
 	
 	public long getId() {
