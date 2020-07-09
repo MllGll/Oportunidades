@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="pb-navbar">
       <div class="container">
-        <a class="navbar-brand" href="../index.html">Oportunidades</a>
+        <a class="navbar-brand" href="../index.jsp">Oportunidades</a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span><i class="ion-navicon"></i></span>
         </button>
@@ -51,8 +51,8 @@
 				<div class="dropdown">
 					<img class="i_options" src="assets/images/options.png"/>
 					<div class="dropdown-content">
-						<a href="" data-toggle="modal" data-target="#exampleModal">Excluir Conta</a>
-						<a href="">Sair</a>
+						<a href="/scripts/oportunidade/deletar/${oportunidade.id}" data-toggle="modal" data-target="#exampleModal">Excluir Conta</a>
+						<a href="../index.jsp">Sair</a>
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 						<p>Email</p>
 						<p>Endereço</p>
 						<p>Número de telefone</p>
-						<p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="../editar.html"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Editar Perfil</span></a></p>
+						<p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="../editar.jsp"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Editar Perfil</span></a></p>
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 		<div class="container">
 			<h1>Painel de Controle</h1>
 			<div class="tabela">
-				<p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="oportunidade.html"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Adicionar Oportunidade</span></a></p>
+				<p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="oportunidade.jsp"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Adicionar Oportunidade</span></a></p>
 				<table style="width: 100%; background-color: white"border="1">
 					<tr>
 						<th>Nome</th>
@@ -104,10 +104,10 @@
 						<td>${oportunidade.data}</td>
 						<td>${oportunidade.remuneracao}</td>
 						<td>
-							<a href="editar_oportunidade.html"><img class="i_options" src="assets/images/editar.png"/></a>
+							<a href="editaroportunidade.jsp"><img class="i_options" src="assets/images/editar.png"/></a>
 						</td>
 						<td>
-							<a href="" data-toggle="modal" data-target="#excluir"><img class="i_options" src="assets/images/excluir.png"/></a>
+							<a href="/scripts/oportunidade/deletar/${oportunidade.id}" data-toggle="modal" data-target="#excluir"><img class="i_options" src="assets/images/excluir.png"/></a>
 						</td>
 					</tr>
 					</c:forEach>

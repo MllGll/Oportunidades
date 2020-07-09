@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 	<head>
 		<title>Editar Perfil</title>
@@ -8,7 +9,7 @@
 		<h1>Editar Perfil</h1>
 		
 		<div class="principal">
-		<h3>InformaÃ§Ãµes de Conta (obrigatÃ³rio)</h3>
+		<h3>Informações de Conta (obrigatório)</h3>
 		<label>Nome completo</label><br>
 		<input type="text" value=""><br>
 		<label>Email</label><br>
@@ -16,8 +17,8 @@
 		<label>Senha</label><br>
 		<input type="text" value=""><br>
 		
-		<h3>InformaÃ§Ãµes Adicionais (opcional)</h3>
-		<label>DescriÃ§Ã£o do perfil</label><br>
+		<h3>Informações Adicionais (opcional)</h3>
+		<label>Descrição do perfil</label><br>
 		<input type="text"><br>
 		
 		<label>CEP</label><br>
@@ -28,18 +29,19 @@
 		<input type="text"><br>
 		<label>Logradouro</label><br>
 		<input type="text"><br>
-		<label>NÃºmero</label><br>
+		<label>Número</label><br>
 		<input type="text"><br>
 		<label>Complemento</label><br>
 		<input type="text"><br>
 		<label>Bairro</label><br>
 		<input type="text"><br>
 		
-		<label>NÃºmero de Telefone</label><br>
+		<label>Número de Telefone</label><br>
 		<input type="text"><br><br>
 		
-		<input type="submit" value="Cancelar">
 		<input type="submit" value="Salvar">
 		</div>
+		
+		<a href="index.jsp">Cancelar</a>
 	</body>
 </html>
