@@ -11,19 +11,19 @@
 
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
-	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/law-icons/font/flaticon.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/law-icons/font/flaticon.css">
 
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/font-awesome.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/slick-theme.css">
 
-    <link rel="stylesheet" href="assets/css/helpers.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/landing-2.css">
+    <link rel="stylesheet" href="/assets/css/helpers.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/landing-2.css">
 	</head>
 	<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 
@@ -55,9 +55,9 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6">
-            <h2 class="vagas">Vagas de emprego para você</h2>
+            <h2 class="vagas">Vagas de emprego para vocÃª</h2>
             <div class="sub-heading">
-              <p class="mb-4">Se você está desempregado e está a procura de um emprego este site é para você, aqui você encontra mais de mil vagas disponíveis podendo selecionar a qual você está interessado. Se você é um contratante este site também para você, aqui você pode anunciar suas vagas disponíveis e ver a lista de candidatos interessados.</p>
+              <p class="mb-4">Se vocÃª estÃ¡ desempregado e estÃ¡ a procura de um emprego este site Ã© para vocÃª, aqui vocÃª encontra mais de mil vagas disponÃ­veis podendo selecionar a qual vocÃª estÃ¡ interessado. Se vocÃª Ã© um contratante este site tambÃ©m para vocÃª, aqui vocÃª pode anunciar suas vagas disponÃ­veis e ver a lista de candidatos interessados.</p>
               <p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="#section-pricing"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Ver Passo a passo</span></a></p>
             </div>
           </div>
@@ -83,12 +83,12 @@
                 <div class="pb_select-wrap">
                   <select class="form-control pb_height-50 reverse" name="tipo">
                     <option value="" selected>Tipo da Conta</option>
-                    <option value="2">Contratante</option>
-                    <option value="1">Candidato</option> 					
+                    <option value="CANDIDATO">Contratante</option>
+                    <option value="CONTRATANTE">Candidato</option> 					
                   </select>
                   <form:errors path="contaForm.tipo"/>
                 </div>
-                <p>${message_error}</p>
+                <p>${message}</p>
               </div>
               <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Registrar">
@@ -144,7 +144,7 @@
               <div class="pb_icon"><i class="ion-ios-color-filter-outline pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h5 class="mt-0 mb-3 heading"></h5>
-                <p class="text-sans-serif">Interação ao mercado de trabalho</p>
+                <p class="text-sans-serif">InteraÃ§Ã£o ao mercado de trabalho</p>
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@
             <div class="row">
               <div class="col">
                 <h2>Oportunidades</h2>
-                <p class="pb_font-20">Há alguns anos sair em busca de um emprego era uma tarefa cansativa, difícil e muito desgastante. Porém, com o avanço tecnológico tornaram essa busca muito mais fácil.</p>
+                <p class="pb_font-20">HÃ¡ alguns anos sair em busca de um emprego era uma tarefa cansativa, difÃ­cil e muito desgastante. PorÃ©m, com o avanÃ§o tecnolÃ³gico tornaram essa busca muito mais fÃ¡cil.</p>
               </div>
             </div>
             <div class="row">
@@ -191,7 +191,7 @@
                   <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-bookmarks-outline pb_icon-gradient"></i></div>
                   <div class="media-body">
                     <h3 class="mt-2 mb-2 heading">Aplicativo</h3>
-                    <p class="text-sans-serif pb_font-16">Ao fazer o cadastro em nosso site, baixe nosso aplicativo e faça login através dele.</p>
+                    <p class="text-sans-serif pb_font-16">Ao fazer o cadastro em nosso site, baixe nosso aplicativo e faÃ§a login atravÃ©s dele.</p>
                   </div>
                 </div>
 
@@ -199,7 +199,7 @@
                   <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
                   <div class="media-body">
                     <h3 class="mt-2 mb-2 heading">Possibilidades</h3>
-                    <p class="text-sans-serif pb_font-16">Você terá várias possibildades tanto para vagas quanto a contratar.</p>
+                    <p class="text-sans-serif pb_font-16">VocÃª terÃ¡ vÃ¡rias possibildades tanto para vagas quanto a contratar.</p>
                   </div>
                 </div>
 
@@ -217,8 +217,8 @@
                 <div class="media pb_feature-v2 text-left mb-1 mt-5">
                   <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-color-filter-outline  pb_icon-gradient"></i></div>
                   <div class="media-body">
-                    <h3 class="mt-2 mb-2 heading">Interação ao mercado de trabalho</h3>
-                    <p class="text-sans-serif pb_font-16">Tal mercado abrange a interação existente entre empregadores e mão de obra.</p>
+                    <h3 class="mt-2 mb-2 heading">InteraÃ§Ã£o ao mercado de trabalho</h3>
+                    <p class="text-sans-serif pb_font-16">Tal mercado abrange a interaÃ§Ã£o existente entre empregadores e mÃ£o de obra.</p>
                   </div>
                 </div>
 
@@ -244,19 +244,19 @@
           <div class="col-md">
             <div class="pb_pricing_v1 p-5 border text-center bg-white">
               <h3>Passo 1</h3>
-              <p class="pb_font-15">Ao entrar em nosso site, você terá que se cadastrar e anexar um arquivo de seu currículo para ter acesso no site e no aplicativo. Além disso você escolherá se irá ser um empregador ou candidato.</p>              
+              <p class="pb_font-15">Ao entrar em nosso site, vocÃª terÃ¡ que se cadastrar e anexar um arquivo de seu currÃ­culo para ter acesso no site e no aplicativo. AlÃ©m disso vocÃª escolherÃ¡ se irÃ¡ ser um empregador ou candidato.</p>              
             </div>
           </div>
           <div class="col-md">
             <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
               <h3>Passo 2</h3>
-              <p class="pb_font-15">Ao fazer login no site, terá acesso ao seu perfil, onde poderá alterar e adicionar dados. Caso seja um empregador terá como adicionar uma vaga e ver os perfis dos candidatos que demonstram interesse em sua vaga, caso não seja um empregador só irá ter acesso ao seu perfil.</p>              
+              <p class="pb_font-15">Ao fazer login no site, terÃ¡ acesso ao seu perfil, onde poderÃ¡ alterar e adicionar dados. Caso seja um empregador terÃ¡ como adicionar uma vaga e ver os perfis dos candidatos que demonstram interesse em sua vaga, caso nÃ£o seja um empregador sÃ³ irÃ¡ ter acesso ao seu perfil.</p>              
             </div>
           </div>
           <div class="col-md">
             <div class="pb_pricing_v1 p-5 border text-center bg-white">
               <h3>Passo 3</h3>
-              <p class="pb_font-15">Em nosso aplicativo você fará o login e lá terão todas as vagas disponiveis baseadas em seu perfil. O candidato poderá demonstrar interesse em qualquer oportunidade, terá uma barra para filtrar por nome da função, local, data..</p>              
+              <p class="pb_font-15">Em nosso aplicativo vocÃª farÃ¡ o login e lÃ¡ terÃ£o todas as vagas disponiveis baseadas em seu perfil. O candidato poderÃ¡ demonstrar interesse em qualquer oportunidade, terÃ¡ uma barra para filtrar por nome da funÃ§Ã£o, local, data..</p>              
             </div>
           </div>
         </div>
@@ -268,9 +268,9 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-5 justify-content-center">
-            <h2 class="heading mb-5 pb_font-40">Já sou cadastrado!</h2>
+            <h2 class="heading mb-5 pb_font-40">JÃ¡ sou cadastrado!</h2>
             <div class="sub-heading">
-              <p class="mb-4"> Se você ja possui um cadastro acesse por aqui!</p>
+              <p class="mb-4"> Se vocÃª ja possui um cadastro acesse por aqui!</p>
             </div>
           </div>
           <div class="col-md-1"></div>
@@ -327,17 +327,17 @@
 
 
 
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
 
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+    <script src="/assets/js/jquery.mb.YTPlayer.min.js"></script>
 
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/jquery.easing.1.3.js"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
 	</body>
 </html>

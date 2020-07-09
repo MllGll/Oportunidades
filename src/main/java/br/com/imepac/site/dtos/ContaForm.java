@@ -1,6 +1,9 @@
 package br.com.imepac.site.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import br.com.imepac.site.utils.ContaTypeENUM;
 
 public class ContaForm {
 
@@ -13,7 +16,8 @@ public class ContaForm {
 	@NotBlank(message = "O campo senha é obrigatório")
 	private String senha;
 	
-	private int tipo;
+	@NotNull(message = "Escolha um tipo!")
+	private ContaTypeENUM tipo;
 
 	public String getNome() {
 		return nome;
@@ -39,12 +43,14 @@ public class ContaForm {
 		this.senha = senha;
 	}
 
-	public int getTipo() {
+	public ContaTypeENUM getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(ContaTypeENUM tipo) {
 		this.tipo = tipo;
 	}
+
+	
 
 }
