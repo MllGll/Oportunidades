@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,7 +39,7 @@ public class ContaController {
 	private IUsuarioServico usuarioServico;
 
 	@Transactional
-	@RequestMapping(method = RequestMethod.POST, value = "cadastrar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "cadastrar")
 	public ModelAndView cadastrar(@Valid ContaForm contaForm, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
@@ -72,23 +73,20 @@ public class ContaController {
 		}
 		return modelAndView;
 	}
-	/*
-	@RequestMapping(method = RequestMethod.DELETE, value = "usuario/delete/ {id}")
-	public ModelAndView delete(@PathVariable long id) {
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "deletar")
+	public ModelAndView deletar(@PathVariable long id) {
 		usuarioServico.delete(id);
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:usuario/cadastrar");
-		modelAndView.addObject("message_success", "Usuario deletado com sucesso");
+		modelAndView.setViewName("../index");
 		return modelAndView;
 	}
+	
 	/*
-	@RequestMapping(method = RequestMethod.GET, value = "usuario/gerenciar/{id}")
-	public ModelAndView gerenciar(@PathVariable long id) {
-		 Usuario usuario = usuarioServico.read(id);
-		 ModelAndView modelAndView = new ModelAndView();
-		 modelAndView.setViewName("usuario/gerenciar");
-		 modelAndView.addObject("Usuarios", usuario);
-		return modelAndView;
+	@Transactional
+	@RequestMapping(method = RequestMethod.POST, value = "atualizar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	public ModelAndView atualizar(@RequestParam CommonsMultipartFile file, BindingResult bindingResult) {
+	
 	}
 	*/
 }

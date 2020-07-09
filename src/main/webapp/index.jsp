@@ -83,8 +83,8 @@
                 <div class="pb_select-wrap">
                   <select class="form-control pb_height-50 reverse" name="tipo">
                     <option value="" selected>Tipo da Conta</option>
-                    <option value="1">Contratante</option>
-                    <option value="2">Candidato</option> 					
+                    <option value="2">Contratante</option>
+                    <option value="1">Candidato</option> 					
                   </select>
                   <form:errors path="contaForm.tipo"/>
                 </div>

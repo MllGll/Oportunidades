@@ -1,14 +1,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 	<head>
-		<title>Cadastrar Oportunidade</title>
+		<title>Editar Oportunidade</title>
 		<link rel="stylesheet" href="../style.css">
 		
 	</head>
 	<body>
-		<h1>Cadastrar Oportunidade</h1>
+		<h1>Editar Oportunidade</h1>
 		
-		<form action="/scripts/oportunidade/cadastrar" method="post">
+		<form action="/scripts/oportunidade/atualizar" method="post">
 			<div class="principal">
 			
 			<label>Nome da oportunidade</label><br> 
@@ -31,7 +31,7 @@
 			<form:errors path="OprtForm.remuneracao"/>
 			<p>${message_error}</p>
 		
-			<input type="submit" value="Gerar">
+			<input type="submit" value="Salvar">
 			</div>
 		</form>
 		

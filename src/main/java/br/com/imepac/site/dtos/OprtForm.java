@@ -2,7 +2,7 @@ package br.com.imepac.site.dtos;
 
 import javax.validation.constraints.NotBlank;
 
-public class OprtInfo {
+public class OprtForm {
 	
 	@NotBlank(message = "Campo nome é de preenchimento obrigatório!")
 	private String nome;
