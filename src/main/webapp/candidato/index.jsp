@@ -11,18 +11,18 @@
 
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
-	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/law-icons/font/flaticon.css">
+	<link rel="stylesheet" href="/candidato/assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/candidato/assets/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/candidato/assets/fonts/law-icons/font/flaticon.css">
 
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/candidato/assets/fonts/fontawesome/css/font-awesome.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/candidato/assets/css/slick.css">
+    <link rel="stylesheet" href="/candidato/assets/css/slick-theme.css">
 
-    <link rel="stylesheet" href="assets/css/helpers.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/candidato/assets/css/helpers.css">
+    <link rel="stylesheet" href="/candidato/assets/css/style.css">
     
 	</head>
 	<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
@@ -42,13 +42,13 @@
             <li class="nav-item"><a class="nav-link" href="#section-faq">Perguntas</a></li>
             <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="https://uicookies.com/" target="_blank"><span class="pb_rounded-4 px-4">Download</span></a></li>
 			<div class="caixa2">
-				<img class="i_profile2" src="assets/images/profile.png"/>
+				<img class="i_profile2" src="/candidato/assets/images/profile.png"/>
 				<p>Nome do Usuário</p>
 				<div class="dropdown">
-					<img class="i_options" src="assets/images/options.png"/>
+					<img class="i_options" src="/candidato/assets/images/options.png"/>
 					<div class="dropdown-content">
 						<a href="/scripts/oportunidade/deletar/${oportunidade.id}" data-toggle="modal" data-target="#exampleModal">Excluir Conta</a>
-						<a href="../index.jsp">Sair</a>
+						<a href="/scripts/usuario/logout">Sair</a>
 					</div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
     <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
 		<div class="container">
 			<div class="prote">
-				<img class="i_profile" src="assets/images/profile.png"/>
+				<img class="i_profile" src="/candidato/assets/images/profile.png"/>
 				<div class="caixa">
 					<h2>Nome do Candidato</h2>
 					<div>
@@ -73,7 +73,12 @@
                     <p class="mb-5">
                         <a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="../editar.html"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Editar Perfil</span></a>
                         <h4>CURRÍCULO</h4>
-                    <p><input class="selecionar" type="file" enctype="multipart/form-data"/></p>
+                        <form action="/scripts/conta/upload" method="post" enctype="multipart/form-data">
+                    		<p>
+                    			<input value="/scripts/conta/upload" class="selecionar" name="file" type="file"/>
+                    		</p>
+                    		<input type="submit" value="ENVIAR"/>  
+                    	</form>
                     </p>
     <!-- END section -->
   
@@ -95,13 +100,13 @@
   </div>
 </div>
   
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.easing.1.3.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/candidato/assets/js/jquery.min.js"></script>
+    <script src="/candidato/assets/js/popper.min.js"></script>
+    <script src="/candidato/assets/js/bootstrap.min.js"></script>
+    <script src="/candidato/assets/js/slick.min.js"></script>
+    <script src="/candidato/assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="/candidato/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/candidato/assets/js/jquery.easing.1.3.js"></script>
+    <script src="/candidato/assets/js/main.js"></script>
 	</body>
 </html>

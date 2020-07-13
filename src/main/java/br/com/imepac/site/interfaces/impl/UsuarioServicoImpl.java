@@ -9,6 +9,7 @@ import br.com.imepac.site.dtos.LoginForm;
 import br.com.imepac.site.entities.Usuario;
 import br.com.imepac.site.entities.repositories.IUsuarioRepository;
 import br.com.imepac.site.interfaces.IUsuarioServico;
+import br.com.imepac.site.utils.ContaTypeENUM;
 
 @Service
 public class UsuarioServicoImpl implements IUsuarioServico {
@@ -39,5 +40,15 @@ public class UsuarioServicoImpl implements IUsuarioServico {
 	@Override
 	public boolean autenticacao(LoginForm loginForm) {
 		return usuarioRepository.findByEmailAndSenha(loginForm.getEmail(), loginForm.getSenha()) != null;
+	}
+
+	@Override
+	public ContaTypeENUM redirecionamento(LoginForm loginForm) {
+		return usuarioRepository.findByEmailAndSenha(loginForm.getEmail(), loginForm.getSenha()).getTipo();
+	}
+
+	@Override
+	public long sessao(LoginForm loginForm) {
+		return usuarioRepository.findByEmailAndSenha(loginForm.getEmail(), loginForm.getSenha()).getId();
 	}
 }

@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" import="br.com.imepac.site.entities.Oportunidade"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,19 +14,19 @@
 
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
-		<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/law-icons/font/flaticon.css">
+	<link rel="stylesheet" href="/contratante/assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/contratante/assets/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/contratante/assets/fonts/law-icons/font/flaticon.css">
 
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/contratante/assets/fonts/fontawesome/css/font-awesome.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/contratante/assets/css/slick.css">
+    <link rel="stylesheet" href="/contratante/assets/css/slick-theme.css">
 
-    <link rel="stylesheet" href="assets/css/helpers.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/landing-2.css">
+    <link rel="stylesheet" href="/contratante/assets/css/helpers.css">
+    <link rel="stylesheet" href="/contratante/assets/css/style.css">
+    <link rel="stylesheet" href="/contratante/assets/css/landing-2.css">
 	
 	
 	
@@ -46,13 +48,13 @@
             
             <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="https://uicookies.com/" target="_blank"><span class="pb_rounded-4 px-4">Download</span></a></li>
 			<div class="caixa2">
-				<img class="i_profile2" src="assets/images/profile.png"/>
+				<img class="i_profile2" src="/contratante/assets/images/profile.png"/>
 				<p>Nome do Usuário</p>
 				<div class="dropdown">
-					<img class="i_options" src="assets/images/options.png"/>
+					<img class="i_options" src="/contratante/assets/images/options.png"/>
 					<div class="dropdown-content">
-						<a href="/scripts/oportunidade/deletar/${oportunidade.id}" data-toggle="modal" data-target="#exampleModal">Excluir Conta</a>
-						<a href="../index.jsp">Sair</a>
+						<a href="/scripts/conta/deletar/${conta.id}" data-toggle="modal" data-target="#exampleModal">Excluir Conta</a>
+						<a href="/scripts/usuario/logout">Sair</a>
 					</div>
 				</div>
 			</div>
@@ -66,7 +68,7 @@
     <section class="tema">
 		<div class="container">
 			<div class="prote">
-				<img class="i_profile" src="assets/images/profile.png"/>
+				<img class="i_profile" src="/contratante/assets/images/profile.png"/>
 				<div class="caixa">
 					<h2>Nome do Contratante</h2>
 					<div>
@@ -86,7 +88,7 @@
 		<div class="container">
 			<h1>Painel de Controle</h1>
 			<div class="tabela">
-				<p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="oportunidade.jsp"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Adicionar Oportunidade</span></a></p>
+				<p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="../../contratante/oportunidade.jsp"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Adicionar Oportunidade</span></a></p>
 				<table style="width: 100%; background-color: white"border="1">
 					<tr>
 						<th>Nome</th>
@@ -97,19 +99,19 @@
 					</tr>
 					
 					<c:forEach items="${oportunidades}" var="oportunidade">
-					<tr>
-						<td>${oportunidade.nome}</td>
-						<td>${oportunidade.funcao}</td>
-						<td>${oportunidade.local}</td>
-						<td>${oportunidade.data}</td>
-						<td>${oportunidade.remuneracao}</td>
-						<td>
-							<a href="editaroportunidade.jsp"><img class="i_options" src="assets/images/editar.png"/></a>
-						</td>
-						<td>
-							<a href="/scripts/oportunidade/deletar/${oportunidade.id}" data-toggle="modal" data-target="#excluir"><img class="i_options" src="assets/images/excluir.png"/></a>
-						</td>
-					</tr>
+						<tr>
+							<td>${oportunidade.nome}</td>
+							<td>${oportunidade.funcao}</td>
+							<td>${oportunidade.local}</td>
+							<td>${oportunidade.data}</td>
+							<td>${oportunidade.remuneracao}</td>
+							<td style="text-align:center">
+								<a href="/scripts/oportunidade/editar/${oportunidade.id}"><img class="i_options" src="/contratante/assets/images/editar.png" style="height:20px"/></a>
+							</td>
+							<td style="text-align:center">
+								<a href="/scripts/oportunidade/deletar/${oportunidade.id}" data-toggle="modal" data-target="#excluir"><img class="i_options" src="/contratante/assets/images/excluir.png" style="height:20px"/></a>
+							</td>
+						</tr>
 					</c:forEach>
 					
 				</table>
@@ -152,22 +154,22 @@
       <div class="modal-body">Esta operação não poderá ser desfeita</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Excluir</button>
+        <button type="submit" class="btn btn-primary">Excluir</button>
       </div>
     </div>
   </div>
 </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="/contratante/assets/js/jquery.min.js"></script>
+    <script src="/contratante/assets/js/popper.min.js"></script>
+    <script src="/contratante/assets/js/bootstrap.min.js"></script>
+    <script src="/contratante/assets/js/slick.min.js"></script>
+    <script src="/contratante/assets/js/jquery.mb.YTPlayer.min.js"></script>
 
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="/contratante/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/contratante/assets/js/jquery.easing.1.3.js"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/contratante/assets/js/main.js"></script>
 
 	</body>
 </html>

@@ -4,15 +4,22 @@ import javax.validation.constraints.NotBlank;
 
 public class OprtForm {
 	
-	@NotBlank(message = "Campo nome é de preenchimento obrigatório!")
+	
+	@NotBlank(message = "*")
 	private String nome;
-	@NotBlank(message = "Campo função é de preenchimento obrigatório!")
+	
+	@NotBlank(message = "*")
 	private String funcao;
-	@NotBlank(message = "Campo local é de preenchimento obrigatório!")
+	
+	@NotBlank(message = "*")
 	private String local;
+	
 	private String data;
-	@NotBlank(message = "Campo remuneração é de preenchimento obrigatório!")
+	
+	@NotBlank(message = "*")
 	private String remuneracao;
+	
+	
 	public String getNome() {
 		return nome;
 	}

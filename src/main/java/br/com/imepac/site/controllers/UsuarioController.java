@@ -1,7 +1,6 @@
 package br.com.imepac.site.controllers;
 
-import java.util.List;
-
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.imepac.site.dtos.LoginForm;
 import br.com.imepac.site.interfaces.IUsuarioServico;
+import br.com.imepac.site.utils.ContaTypeENUM;
 
 @Controller
 @RequestMapping(value = "/scripts/usuario")
@@ -25,31 +25,35 @@ public class UsuarioController {
 	private ModelAndView modelAndView;
 	
 	@RequestMapping(method = RequestMethod.GET, value = "login")
-	public ModelAndView login(@Valid LoginForm loginForm, BindingResult bindingResult) {
+	public ModelAndView login(@Valid LoginForm loginForm, HttpSession session, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("index");
-			modelAndView.addObject("message_error", "Foram encontrados erros!");
 		} 
 		else {
 
 			if(usuarioServico.autenticacao(loginForm)==true) {
-				// criar um elemento na sessão
-
+				 
+				if(usuarioServico.redirecionamento(loginForm) == ContaTypeENUM.CANDIDATO){	
+					modelAndView.setViewName("candidato/index");
+				}
+				else{
+					modelAndView.setViewName("redirect:/scripts/oportunidade/gerenciar");
+				}
 				
-				//modelAndView.setViewName("gerenciar");
+				session.setAttribute("usuarioLogado", usuarioServico.sessao(loginForm));
 			}else {
 				modelAndView.setViewName("index");
-				modelAndView.addObject("message_erro", "Dados de acesso incorretos!");	
+				modelAndView.addObject("message_error", "Dados de acesso incorretos!");	
 			}
 		}
 		
 		return modelAndView;
 	}
-	/*
-	@RequestMapping(method = RequestMethod.GET, value = "logout")
-	public ModelAndView logout(@Valid LoginForm loginForm, BindingResult bindingResult) {
-	
+	@RequestMapping(value = "logout")
+	public ModelAndView logout(HttpSession session) {
+		session.invalidate();
+		modelAndView.setViewName("index");
+        return modelAndView;
 	}
-	*/
 }

@@ -10,21 +10,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.XmlWebApplicationContext;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+@SuppressWarnings("deprecation")
 @SpringBootApplication
 public class OpornunidadesApplication extends WebMvcConfigurerAdapter implements WebApplicationInitializer  {
 
 		
-		 @Override
-		    public void addViewControllers(ViewControllerRegistry registry) {
-		      registry.addViewController("/").setViewName("index");
-		    }
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("index");
+	}
 		 
 	@Override
     public void onStartup(ServletContext container) {
@@ -52,4 +55,16 @@ public class OpornunidadesApplication extends WebMvcConfigurerAdapter implements
 		SpringApplication.run(OpornunidadesApplication.class, args);
 	}
 
+	@Bean
+	public DefaultServletHttpRequestHandler createDefaultServletHttpRequestHandler() {
+	    return new DefaultServletHttpRequestHandler();
+	}
+
+
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver() {
+	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+	    multipartResolver.setMaxUploadSize(100000);
+	    return multipartResolver;
+	}
 }

@@ -15,32 +15,17 @@ public class Oportunidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank(message = "O campo local é obrigatório!")
 	private String local;
 	
-	@NotBlank(message = "")
-	private String obs;
-	
-	@NotBlank(message = "O campo funcao é obrigatório!")
 	private String funcao;
 	
-	@NotBlank(message = "O campo remuneração é obrigatório!")
 	private String remuneracao;
 	
-	@NotBlank(message = "O campo nome é obrigatório!")
 	private String nome;
 	
-	@NotBlank(message = "")
 	private String data;
 
 	
-	public String getObs() {
-		return obs;
-	}
-
-	public void setObs(String obs) {
-		this.obs = obs;
-	}
 
 	public long getId() {
 		return id;

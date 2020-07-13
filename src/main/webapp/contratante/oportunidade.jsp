@@ -2,39 +2,38 @@
 <html>
 	<head>
 		<title>Cadastrar Oportunidade</title>
-		<link rel="stylesheet" href="../style.css">
+		<link rel="stylesheet" href="/../style.css">
 		
 	</head>
 	<body>
 		<h1>Cadastrar Oportunidade</h1>
 		
-		<form action="/scripts/oportunidade/cadastrar" method="post">
-			<div class="principal">
+		<div class="principal">
+			<form action="/scripts/oportunidade/cadastrar" method="post">
 			
-			<label>Nome da oportunidade</label><br> 
-			<input type="text" name="nome" value=""><br>
-			<form:errors path="OprtForm.nome"/>
+				<label>Nome da oportunidade </label><form:errors path="oprtForm.nome" style="color: red"/><br> 
+				<input type="text" name="nome"><br>
 			
-			<label>Função a ser exercida</label><br>
-			<input type="text" name="funcao" value=""><br>
-			<form:errors path="OprtForm.funcao"/>
+				<label>Função a ser exercida </label><form:errors path="oprtForm.funcao" style="color: red"/><br>
+				<input type="text" name="funcao"><br>
 			
-			<label>Nome do Local ou Logradouro</label><br>
-			<input type="text" name="local" value=""><br>
-			<form:errors path="OprtForm.local"/>
+				<label>Nome do Local ou Logradouro </label><form:errors path="oprtForm.local" style="color: red"/><br>
+				<input type="text" name="local"><br>
 			
-			<label>Data (opcional)</label><br>
-			<input type="text" name="data"><br>
+				<label>Data (opcional)</label><br>
+				<input type="text" name="data"><br>
 			
-			<label>Remuneração</label><br>
-			<input type="text" name="remuneracao"><br><br>
-			<form:errors path="OprtForm.remuneracao"/>
-			<p>${message_error}</p>
+				<label>Remuneração </label><form:errors path="oprtForm.remuneracao" style="color: red"/><br>
+				<input type="text" name="remuneracao"><br><br>
 		
-			<input type="submit" value="Gerar">
-			</div>
-		</form>
+				<input type="submit" value="Gerar" style="margin-bottom:0">
+			
+			</form>
+			
+			<form action="/scripts/oportunidade/cancelar">
+				<input type="submit" value="Cancelar" style="margin-top:0">
+			</form>
 		
-		<a href="../index.jsp">Cancelar</a>
+		</div>
 	</body>
 </html>

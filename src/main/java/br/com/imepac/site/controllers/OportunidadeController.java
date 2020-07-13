@@ -3,6 +3,7 @@ package br.com.imepac.site.controllers;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,6 @@ public class OportunidadeController {
 		
 		if(bindingResult.hasErrors()) {
 			modelAndView.setViewName("contratante/oportunidade");
-			modelAndView.addObject("message_error", "Foram encontrados erros!");
 		}
 		else {
 			Oportunidade oportunidade = new Oportunidade();
@@ -43,44 +43,57 @@ public class OportunidadeController {
 			oportunidade.setRemuneracao(oprtForm.getRemuneracao());
 			oportunidadeServico.save(oportunidade);
 			
-			modelAndView.setViewName("contratante/index");
+			modelAndView.setViewName("redirect:/scripts/oportunidade/gerenciar");
 		}
 		return modelAndView;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "contratante/index")
+	@RequestMapping(method = RequestMethod.GET, value = "gerenciar")
 	public ModelAndView gerenciar() {
 		List<Oportunidade> oportunidades = oportunidadeServico.reads();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("contratante/index");
-		modelAndView.addObject("op", oportunidades);
+		modelAndView.addObject("oportunidades", oportunidades);
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "editar/{id}")
+	public ModelAndView editar() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("contratante/editaroportunidade");
+		return modelAndView;
+	}
+	
 	@RequestMapping(method = RequestMethod.POST, value = "atualizar")
 	public ModelAndView atualizar(@Valid OprtForm oprtForm, @PathVariable long id, BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
 			modelAndView.setViewName("contratante/editaroportunidade");
-			modelAndView.addObject("message_error", "Foram encontrados erros!");
 		}
 		else {
-			oportunidadeServico.read(id);
-			//oportunidade.setNome(oprtForm.getNome());
-			//oportunidade.setFuncao(oprtForm.getFuncao());
-			//oportunidade.setLocal(oprtForm.getLocal());
-			//oportunidade.setData(oprtForm.getData());
-			//oportunidade.setRemuneracao(oprtForm.getRemuneracao());
-			//oportunidadeServico.update(oportunidade);
+			Oportunidade oportunidade = oportunidadeServico.read(id);
+			oportunidade.setNome(oprtForm.getNome());
+			oportunidade.setFuncao(oprtForm.getFuncao());
+			oportunidade.setLocal(oprtForm.getLocal());
+			oportunidade.setData(oprtForm.getData());
+			oportunidade.setRemuneracao(oprtForm.getRemuneracao());
+			oportunidadeServico.update(oportunidade);
 			
 			modelAndView.setViewName("contratante/index");
 		}
 		return modelAndView;
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "deletar")
+	@RequestMapping(method = RequestMethod.DELETE, value = "deletar/{id}")
 	public ModelAndView deletar(@PathVariable long id) {
 		oportunidadeServico.delete(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("contratante/index");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "cancelar")
+	public ModelAndView cancelar() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("contratante/index");
 		return modelAndView;

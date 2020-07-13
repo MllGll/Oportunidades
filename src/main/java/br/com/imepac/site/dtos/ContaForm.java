@@ -7,16 +7,16 @@ import br.com.imepac.site.utils.ContaTypeENUM;
 
 public class ContaForm {
 
-	@NotBlank(message = "O campo nome é obrigatório")
+	@NotBlank(message = "(campo obrigatório)")
 	private String nome;
 	
-	@NotBlank(message = "O campo email é obrigatório")
+	@NotBlank(message = "(campo obrigatório)")
 	private String email;
 	
-	@NotBlank(message = "O campo senha é obrigatório")
+	@NotBlank(message = "(campo obrigatório)")
 	private String senha;
 	
-	@NotNull(message = "Escolha um tipo!")
+	@NotNull(message = "(campo obrigatório)")
 	private ContaTypeENUM tipo;
 
 	public String getNome() {

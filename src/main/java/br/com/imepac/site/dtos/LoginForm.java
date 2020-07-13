@@ -4,9 +4,9 @@ import javax.validation.constraints.NotBlank;
 
 public class LoginForm {
 
-	@NotBlank(message = "Campo e-mail é de preenchimento obrigatório!")
+	@NotBlank(message = "(campo obrigatório)")
 	private String email;
-	@NotBlank(message = "Campo senha é de preenchimento obrigatório!")
+	@NotBlank(message = "(campo obrigatório)")
 	private String senha;
 	
 	public String getEmail() {
